@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 // Default IP for standard setups
-let serverIP = "192.168.1.2";
+let serverIP = "192.168.1.6";
 let socket = io(`http://${serverIP}:5000`, { autoConnect: false });
 
 export const getSocket = () => socket;
