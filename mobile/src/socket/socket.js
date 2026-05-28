@@ -1,21 +1,24 @@
 import { io } from "socket.io-client";
 
-// Default IP for standard setups
-let serverIP = "192.168.1.6";
-let socket = io(`http://${serverIP}:5000`, { autoConnect: false });
+/**
+ * SOCKET CONNECTION (Mobile / Expo Go)
+ * Connects to the Railway-deployed server.
+ * Replace SERVER_URL with your actual Railway URL once deployed.
+ * For local dev swap it back to `http://<YOUR_LOCAL_IP>:5000`.
+ */
+export const SERVER_URL =
+  process.env.EXPO_PUBLIC_SERVER_URL || "http://localhost:5000";
+
+let socket = io(SERVER_URL, {
+  transports: ["websocket"],
+  autoConnect: false,
+});
 
 export const getSocket = () => socket;
 
-export const updateSocketIP = (newIP) => {
-  if (socket) {
-    socket.disconnect();
-  }
-  serverIP = newIP.trim();
-  socket = io(`http://${serverIP}:5000`, {
-    transports: ["websocket"],
-    forceNew: true
-  });
-  socket.connect();
+/** @deprecated No longer needed — server is on Railway. Kept for backwards compat. */
+export const updateSocketIP = (_newIP) => {
+  // No-op: IP switching is no longer needed with a cloud server.
   return socket;
 };
 

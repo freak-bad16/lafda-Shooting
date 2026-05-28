@@ -23,10 +23,10 @@ const LandingScreen = ({ onStart }) => (
     {/* Hero */}
     <div className="ac-hero-container">
       <h1 className="ac-hero-title">
-        Hostel rooms + phone controllers = Ultimate college multiplayer lafda!
+        Ultimate college multiplayer lafda!
       </h1>
       <p className="ac-hero-subtitle">
-        Turn any screen in your wing into a social multiplayer hub. Made for Indian students.
+        Turn any screen in your wing into a social multiplayer hub. Made for students.
       </p>
       <button className="ac-green-btn" onClick={onStart}>
         Start Lafda Now

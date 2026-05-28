@@ -10,11 +10,12 @@ import app from "./app.js";
 import socketHandler from "./sockets/socketHandler.js";
 
 const PORT = process.env.PORT || 5000;
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "*";
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: { origin: ALLOWED_ORIGIN, methods: ["GET", "POST"] },
 });
 
 // Mount all socket controllers via the central handler

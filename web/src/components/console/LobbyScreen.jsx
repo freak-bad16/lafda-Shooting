@@ -57,7 +57,7 @@ const LobbyScreen = ({
                     P{idx + 1}
                   </div>
                   <div className="ac-phone-screen">
-                    {["LEFT", "USE", "RIGHT"].map((btn) => (
+                    {["LEFT", "JUMP", "RIGHT"].map((btn) => (
                       <div
                         key={btn}
                         className={`ac-phone-btn${btn === "USE" ? " ac-phone-btn-center" : ""}`}
@@ -79,7 +79,7 @@ const LobbyScreen = ({
               ))}
             </div>
 
-            <div className="ac-guide-text">Phones + Screen = Console</div>
+            <div className="ac-guide-text">Phones + Laptop = Console</div>
           </div>
         ) : (
           // Player roster
@@ -131,7 +131,7 @@ const LobbyScreen = ({
 
         <h1 className="ac-connect-title">Connect your phones as controllers</h1>
         <p className="ac-connect-subtitle">
-          Open <span className="ac-connect-url">{window.location.hostname || "lafda.local"}</span> on your phone
+          Open <span className="ac-connect-url">{"Our App"}</span> on your phone
           <br />and <span className="ac-connect-bold">enter the code</span> below:
         </p>
 

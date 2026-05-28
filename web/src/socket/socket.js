@@ -1,7 +1,9 @@
 import { io } from "socket.io-client";
 
-// Resolve host dynamically (if open on mobile phone, it connects to PC's IP; if localhost, it uses localhost)
-const host = typeof window !== "undefined" ? window.location.hostname : "localhost";
-const socket = io(`http://${host}:5000`);
+// In production (Vercel): set VITE_SERVER_URL to your Railway server URL.
+// In local dev: falls back to localhost:5000.
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
+
+const socket = io(SERVER_URL);
 
 export default socket;

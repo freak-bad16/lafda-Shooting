@@ -25,5 +25,9 @@ yarn-error.log*
 *.suo
 *.sln
 
-# local environment files
-.env*.local
+# Environment files — keep .env.example, ignore everything else
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production

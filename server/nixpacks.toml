@@ -1,0 +1,6 @@
+# Railway Nixpacks configuration for the Node.js server
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[start]
+cmd = "npm start"
